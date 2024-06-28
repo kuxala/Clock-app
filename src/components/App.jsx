@@ -14,7 +14,21 @@ function App() {
   const [dayOfYear, setDayOfYear] = useState("Loading...");
   const [weekNumber, setWeekNumber] = useState("Loading...");
   const [ip, setIp] = useState(null);
-  console.log("ip", ip);
+
+  useEffect(() => {
+    const findIp = async () => {
+      try {
+        const resp = await fetch("https://ipapi.co/json");
+        const data = await resp.json();
+        setIp(data.ip);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    findIp();
+  }, []);
+
+  //quotes
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,23 +46,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const findIp = async () => {
-      try {
-        const resp = await fetch("https://ipapi.co/json");
-        const data = await resp.json();
-        setIp(data.ip);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    findIp();
-  }, []);
-
-  useEffect(() => {
-    //ssd
     const fetchTimeData = async () => {
       try {
-        const resp = await fetch(`https://api.ipapi.is/?q=${ip}`);
+        const resp = await fetch(`https://api.ipapi.is/ `);
         const da = await resp.json();
         setLocation(da.location.timezone);
 
