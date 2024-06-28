@@ -92,16 +92,16 @@ function App() {
   const fadeOut = useSpring({
     opacity: dropDown ? 0 : 1,
   });
-
-  if (
-    time === "Loading..." ||
-    location === "Loading..." ||
-    dayOfWeek === "Loading..." ||
-    dayOfYear === "Loading..." ||
-    weekNumber === "Loading..."
-  ) {
-    return <p>Loading...</p>;
-  }
+  //sss
+  // if (
+  //   time === "Loading..." ||
+  //   location === "Loading..." ||
+  //   dayOfWeek === "Loading..." ||
+  //   dayOfYear === "Loading..." ||
+  //   weekNumber === "Loading..."
+  // ) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <div className={darkmode ? "wrapper-dark" : "wrapper"}>
